@@ -5,6 +5,11 @@
  * Created by wangwenjie on 2018/5/7 下午4:25
  */
 
+/**
+ * 组件生命周期
+ */
+
+
 import React, {Component} from 'react'
 import {
     View,
