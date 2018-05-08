@@ -14,10 +14,19 @@ import React, {Component} from 'react'
 import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from 'react-native'
 
 export default class ComponentLifecycleEntrance extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = ({
+            name:'韦小宝',
+            count: 0
+        })
+    }
 
     componentWillMount() {
         console.log('-------父组件的componentWillMount-------')
@@ -29,10 +38,50 @@ export default class ComponentLifecycleEntrance extends Component {
 
     render(){
         return(
-            <ComponentLifecycle name={'小子'}/>
+            <View style={styles.container}>
+                <TouchableOpacity onPress={this.changeName}>
+                    <Text style = {{fontSize: 20, marginTop:20, marginBottom:10}}>{'change'}</Text>
+                </TouchableOpacity>
+                <ComponentLifecycle name={this.state.name}
+                                    callBack={this.callBack}
+                                    testCallBack={this.testCallBack}
+                                    test={this.testFunc}/>
+            </View>
         )
     }
 
+
+    changeName = () => {
+        this.setState({
+            name: '老夫子'
+        })
+    }
+
+
+    callBack = (i) => {
+        if (i == 3){
+            this.setState({
+                name:'段誉'
+            })
+        }
+    }
+
+    testCallBack = () => {
+        this.setState({
+            count: this.state.count + 1
+        })
+        if (this.state.count == 2) {
+            this.setState({
+                name: '测试一波'
+            })
+        }
+    }
+    testFunc = () => {
+        this.setState({
+            name:'tet'
+        })
+        console.log('调用了....testFunction')
+    }
 }
 
 
@@ -137,14 +186,23 @@ class ComponentLifecycle extends Component {
                         this.setState({
                             count: this.state.count+1,
                         })
-                    }
-                    }
-                >要有本事你打我啊.{this.props.name}</Text>
 
-                <Text style={{fontSize: 30}}>打我{this.state.count}次干嘛</Text>
+                        // this.callback(this.state.count)
+                        // this.props.callBack(this.state.count)
+
+                        // this.props.testCallBack()
+                        this.props.test()
+                    }
+                    }
+                >点点点...{this.props.name}</Text>
+
+                <Text style={{fontSize: 30}}>敲打{this.state.count}次</Text>
             </View>
         )
 
+    }
+    callback = (i) => {
+        this.props.callBack(i)
     }
 }
 
@@ -153,7 +211,6 @@ const styles = StyleSheet.create({
         flex:1
     },
     textStyle: {
-        marginTop:20,
         fontSize:20,
         backgroundColor:'red'
     }
