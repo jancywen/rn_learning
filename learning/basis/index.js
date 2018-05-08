@@ -9,6 +9,10 @@ import { AppRegistry } from 'react-native';
 
 import ComponentLifecycleEntrance from './ComponentLifecycle'
 
+import FlexboxLayout from './FlexboxLayout'
 
-AppRegistry.registerComponent('rn_learning', () => ComponentLifecycleEntrance)
 
+
+// AppRegistry.registerComponent('rn_learning', () => ComponentLifecycleEntrance)
+
+AppRegistry.registerComponent('rn_learning', () => FlexboxLayout)
