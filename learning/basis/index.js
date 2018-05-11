@@ -11,11 +11,19 @@ import ComponentLifecycleEntrance from './ComponentLifecycle'
 
 import FlexboxLayout from './FlexboxLayout'
 
-import ComponentTextInput from './ComponentTextInput'
+// import ComponentTextInput from './ComponentTextInput'
 
+import ComponentFlatList from './ComponentFlatList'
+
+
+import ComponentSectionList from './ComponentSectionList'
 
 // AppRegistry.registerComponent('rn_learning', () => ComponentLifecycleEntrance)
 
 // AppRegistry.registerComponent('rn_learning', () => FlexboxLayout)
 
-AppRegistry.registerComponent('rn_learning', () => ComponentTextInput)
+// AppRegistry.registerComponent('rn_learning', () => ComponentTextInput)
+
+// AppRegistry.registerComponent('rn_learning', () => ComponentFlatList)
+
+AppRegistry.registerComponent('rn_learning',  () => ComponentSectionList)
